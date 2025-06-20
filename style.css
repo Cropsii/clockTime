@@ -28,6 +28,7 @@ body {
   gap: 1rem;
 }
 .wrap {
+  transition: ease-in 2s;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -40,6 +41,17 @@ body {
 .stopped {
   opacity: 0.5;
 }
+#stoppedClock {
+  position: absolute;
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+}
+
+#stoppedClock.stopped_Appear {
+  opacity: 1;
+  transform: translateY(-120px);
+}
+
 /* clockEnd */
 
 /* switch */
