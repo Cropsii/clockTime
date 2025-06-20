@@ -52,9 +52,9 @@ function showStoppedTime() {
     document.querySelector("main").insertAdjacentHTML(
       "beforebegin",
       `<main class="wrap_line stopped" id="stoppedClock">
-        <div class="clock" data-role="stopped-hours"></div>
-        <div class="clock" data-role="stopped-minutes"></div>
-        <div class="clock" data-role="stopped-seconds"></div>
+        <div class="clock temp" data-role="stopped-hours"></div>
+        <div class="clock temp" data-role="stopped-minutes"></div>
+        <div class="clock temp" data-role="stopped-seconds"></div>
       </main>`
     );
   }

@@ -41,14 +41,17 @@ body {
 .stopped {
   opacity: 0.5;
 }
+.temp{
+  background:gray;
+}
 #stoppedClock {
   position: absolute;
   opacity: 0;
-  transition: 0.2s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 #stoppedClock.stopped_Appear {
-  opacity: 1;
+  opacity: 0.9;
   transform: translateY(-120px);
 }
 
