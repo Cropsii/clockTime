@@ -9,6 +9,7 @@ body {
   background: rgb(50, 50, 50);
   margin: 0;
 }
+
 /* clock */
 .clock {
   width: 100px;
@@ -22,6 +23,13 @@ body {
   border-radius: 10px;
   transition: 0.3s;
   scale: 1;
+}
+a {
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+  background: black;
+  border-radius: 20px;
 }
 .wrap_line {
   display: flex;
