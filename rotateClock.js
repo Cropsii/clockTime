@@ -33,7 +33,6 @@ function updateRotate(el, typeOf) {
 
     if (currentValue !== lastValue) {
       currentRotation += 90;
-      el.style.transition = "transform 0.35s ease-in-out";
       el.style.transform = `rotateY(${currentRotation}deg)`;
 
       setTimeout(() => {
@@ -42,7 +41,7 @@ function updateRotate(el, typeOf) {
 
         currentRotation += 90;
         el.style.transform = `rotateY(${currentRotation}deg)`;
-      }, 350);
+      }, 150);
     }
   }, 1000);
 }
