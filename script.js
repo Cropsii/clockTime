@@ -1,21 +1,21 @@
 const switchButton = document.getElementById("switch_Button");
-let timerID = null;
-let clicked = false;
-
 const hoursObj = document.querySelector('[data-role="hours"]');
 const minutesObj = document.querySelector('[data-role="minutes"]');
 const secondsObj = document.querySelector('[data-role="seconds"]');
 const stoppedClock = document.querySelector("#stoppedClock");
 
+let timerID = null;
+let clicked = false;
 let stoppedHoursObj = null;
 let stoppedMinutesObj = null;
 let stoppedSecondsObj = null;
 let time = null;
+
 function animateChange(el, newText) {
   if (el.innerText !== newText) {
     el.classList.add("fade");
+    el.innerText = newText;
     setTimeout(() => {
-      el.innerText = newText;
       el.classList.remove("fade");
     }, 300);
   }

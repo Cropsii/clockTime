@@ -42,7 +42,6 @@ body {
   opacity: 0.5;
 }
 .temp {
-  border-radius: 50%;
   background: gray;
 }
 #stoppedClock {
