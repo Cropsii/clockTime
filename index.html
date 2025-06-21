@@ -9,13 +9,18 @@
   <body>
     <!-- Секция часов -->
     <div class="wrap">
+      <main class="wrap_line stopped" id="stoppedClock">
+        <div class="clock temp" data-role="stopped-hours"></div>
+        <div class="clock temp" data-role="stopped-minutes"></div>
+        <div class="clock temp" data-role="stopped-seconds"></div>
+      </main>
       <main class="wrap_line" id="liveClock">
         <div class="clock" data-role="hours"></div>
         <div class="clock" data-role="minutes"></div>
         <div class="clock" data-role="seconds"></div>
       </main>
     </div>
-    <div id="test"></div>
+
     <!-- Секция часов конец -->
 
     <!-- секция переключателя -->
