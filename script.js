@@ -2,7 +2,6 @@ const switchButton = document.getElementById("switch_Button");
 const hoursObj = document.querySelector('[data-role="hours"]');
 const minutesObj = document.querySelector('[data-role="minutes"]');
 const secondsObj = document.querySelector('[data-role="seconds"]');
-const stoppedClock = document.querySelector("#stoppedClock");
 
 let timerID = null;
 let clicked = false;
@@ -34,10 +33,7 @@ function startClock() {
     timerID = setInterval(updateTime, 1000);
   }
 }
-/**
- *
- * @param {HTMLElement} el
- */
+
 function animateStopped(el) {
   if (!el.classList.contains("stopped_Appear")) {
     setTimeout(() => {
@@ -47,11 +43,30 @@ function animateStopped(el) {
 }
 
 function showStoppedTime() {
+  const html = `
+    <main class="wrap_line stopped" id="stoppedClock">
+      <div class="clock temp" data-role="stopped-hours"></div>
+      <div class="clock temp" data-role="stopped-minutes"></div>
+      <div class="clock temp" data-role="stopped-seconds"></div>
+    </main>
+  `;
+
+  const wrapper = document.querySelector(".wrap");
+  const liveClock = document.getElementById("liveClock");
+
+  // Вставляем перед живыми часами
+  liveClock.insertAdjacentHTML("beforebegin", html);
+
+  const stoppedClock = document.getElementById("stoppedClock");
   animateStopped(stoppedClock);
 
-  stoppedHoursObj = document.querySelector('[data-role="stopped-hours"]');
-  stoppedMinutesObj = document.querySelector('[data-role="stopped-minutes"]');
-  stoppedSecondsObj = document.querySelector('[data-role="stopped-seconds"]');
+  stoppedHoursObj = stoppedClock.querySelector('[data-role="stopped-hours"]');
+  stoppedMinutesObj = stoppedClock.querySelector(
+    '[data-role="stopped-minutes"]'
+  );
+  stoppedSecondsObj = stoppedClock.querySelector(
+    '[data-role="stopped-seconds"]'
+  );
 
   const stoppedTime = time;
   animateChange(
@@ -68,8 +83,18 @@ function showStoppedTime() {
   );
 }
 
-function resetClock(el) {
+function resetClock() {
+  const el = document.getElementById("stoppedClock");
+  if (!el) return;
+
   el.classList.remove("stopped_Appear");
+
+  const onTransitionEnd = () => {
+    el.removeEventListener("transitionend", onTransitionEnd);
+    el.remove();
+  };
+
+  el.addEventListener("transitionend", onTransitionEnd);
 }
 
 switchButton.addEventListener("change", () => {
@@ -77,7 +102,7 @@ switchButton.addEventListener("change", () => {
   if (clicked) {
     showStoppedTime();
   } else {
-    resetClock(stoppedClock);
+    resetClock();
   }
 });
 
